@@ -8,8 +8,8 @@
 
 import UIKit
 
-class MasterViewController: UITableViewController {
-
+class MasterViewController: UITableViewController,UISearchResultsUpdating {
+    
     var detailViewController: DetailViewController? = nil
     var objects = [Any]()
 
@@ -22,6 +22,9 @@ class MasterViewController: UITableViewController {
         
         // se agrega el buscador en el navigation
         navigationItem.searchController = UISearchController(searchResultsController: nil)
+        
+        // decidir si se oculta la barra de busqueda al hacer scroll
+        navigationItem.hidesSearchBarWhenScrolling = false
         
         navigationItem.leftBarButtonItem = editButtonItem
 
@@ -94,6 +97,10 @@ class MasterViewController: UITableViewController {
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        
     }
 
 
