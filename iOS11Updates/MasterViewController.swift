@@ -16,9 +16,12 @@ class MasterViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
+        // agregar el titulo de iOS 11
         navigationController?.navigationBar.prefersLargeTitles = true
+        
+        // se agrega el buscador en el navigation
+        navigationItem.searchController = UISearchController(searchResultsController: nil)
         
         navigationItem.leftBarButtonItem = editButtonItem
 
