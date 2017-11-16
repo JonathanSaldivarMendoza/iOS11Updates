@@ -12,6 +12,14 @@ class MasterViewController: UITableViewController,UISearchResultsUpdating {
     
     var detailViewController: DetailViewController? = nil
     var objects = [Any]()
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        // modificar los margenes del tableview de forma manual 
+        tableView.contentInset = UIEdgeInsets(top: 40, left: 0, bottom: 0, right: 0)
+        // print de los margenes de la tabla
+        print(tableView.adjustedContentInset)
+    }
 
 
     override func viewDidLoad() {
@@ -27,6 +35,9 @@ class MasterViewController: UITableViewController,UISearchResultsUpdating {
         navigationItem.hidesSearchBarWhenScrolling = false
         
         navigationItem.leftBarButtonItem = editButtonItem
+        
+        // modificar quien ajusta los insents o margenes del tableview
+        tableView.contentInsetAdjustmentBehavior = .automatic
 
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
         navigationItem.rightBarButtonItem = addButton
